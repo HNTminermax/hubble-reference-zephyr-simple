@@ -119,7 +119,8 @@ int main(void)
 		return err;
 	}
 
-	err = hubble_init(TIME, master_key);
+	/* Device uptime counter source: start counter at 0. No wall clock needed. */
+	err = hubble_init(0, master_key);
 	if (err != 0) {
 		LOG_ERR("Failed to initialize Hubble BLE Network");
 		goto end;

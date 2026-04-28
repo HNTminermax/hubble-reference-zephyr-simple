@@ -1,5 +1,8 @@
 **/build/
 
+# clangd index
+.cache/
+
 # macOS
 .DS_Store
 **/.DS_Store
