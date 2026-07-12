@@ -172,6 +172,10 @@ jobs:
           BOARD: ${{ github.event.inputs.board }}
         run: |
           set -euxo pipefail
+          # Zephyr 4.4+ requires Silicon Labs binary blobs for Bluetooth.
+          if [ "$BOARD" = "xiao_mg24" ]; then
+            west blobs fetch hal_silabs
+          fi
           west build -p -b "$BOARD" .
 
       - name: Sanitize board name
