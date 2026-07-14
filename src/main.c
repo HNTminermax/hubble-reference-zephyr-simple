@@ -22,8 +22,7 @@ LOG_MODULE_REGISTER(main, CONFIG_APP_LOG_LEVEL);
 static uint8_t master_key[CONFIG_HUBBLE_KEY_SIZE];
 static const char master_key_str[] = HUBBLE_KEY;
 
-#define ADV_UPDATE_PERIOD_S 300
-
+#define ADV_UPDATE_PERIOD_S 90
 /* Advertising interval settings */
 #define ADV_INTERVAL_S 2
 #define ADV_INTERVAL_CNT_MIN (ADV_INTERVAL_S * 1600)
