@@ -177,6 +177,10 @@ jobs:
             west blobs fetch hal_silabs
           fi
           west build -p -b "$BOARD" .
+          # PinCloud field-test profile verification
+          grep -qx "CONFIG_BT_CTLR_TX_PWR_ANTENNA=8" build/zephyr/.config
+          grep -qx "#define ADV_INTERVAL_S 2" src/main.c
+          grep -qx "#define ADV_UPDATE_PERIOD_S 90" src/main.c
 
       - name: Sanitize board name
         id: sanitize-board-name
